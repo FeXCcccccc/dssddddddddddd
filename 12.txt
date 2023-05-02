@@ -1,0 +1,47 @@
+	EnablePrimaryMouseButtonEvents(true);
+
+function OnEvent(event, arg)
+	--only supported in v8.94.108+
+	if IsKeyLockOn("scrolllock" )then
+		if IsMouseButtonPressed(3)then
+			repeat
+				--norecoil    
+				if IsMouseButtonPressed(1) then
+					PressKey("y")
+					Sleep(20)
+					ReleaseKey("y")
+					repeat
+						MoveMouseRelative(1,55)
+						--change this value
+						Sleep(36)
+					until not IsMouseButtonPressed(1)
+				end
+ 
+				--Rapid Fire Script
+				if IsMouseButtonPressed(2) then
+					PressKey("y")
+					Sleep(20)
+					ReleaseKey("y")
+					repeat
+						PressMouseButton(1)
+						Sleep(1)
+						ReleaseMouseButton(1)
+						MoveMouseRelative(4,67)
+						Sleep(1)
+					until not IsMouseButtonPressed(2)
+				end
+				
+				--perfect burst
+				if IsMouseButtonPressed(5) then
+					repeat
+						PressMouseButton(1)
+						Sleep(5)
+						ReleaseMouseButton(1)
+						Sleep(5)
+					until not IsMouseButtonPressed(5)
+				end
+			until not IsMouseButtonPressed(3)
+		end
+		
+	end    
+end
